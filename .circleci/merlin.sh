@@ -25,7 +25,7 @@ THIN_LTO=0
 
 # Files
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
-DTBO=$(pwd)/out/arch/arm64/boot/dtbo.img
+DTBO=$(pwd)/out/arch/arm64/boot/dts/mediatek
 DTB=$(pwd)/out/arch/arm64/boot/dts/mediatek
 
 # Verbose Build
@@ -284,7 +284,8 @@ START=$(date +"%s")
 function zipping() {
 	# Copy Files To AnyKernel3 Zip
 	cp $IMAGE AnyKernel3
-	cp $DTBO AnyKernel3
+	#cp $DTBO AnyKernel3
+	find $DTBO -name "*.dtbo" -exec cat {} + > AnyKernel3/dtbo.img
 	find $DTB -name "*.dtb" -exec cat {} + > AnyKernel3/dtb
 	
 	
