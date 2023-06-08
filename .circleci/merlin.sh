@@ -48,7 +48,7 @@ FINAL_ZIP_ALIAS=Karenulmerlita-${TANGGAL}.zip
 ##----------------------------------------------------------##
 # Specify compiler.
 
-COMPILER=atomx
+COMPILER=azure
 
 ##----------------------------------------------------------##
 # Specify Linker
