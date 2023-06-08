@@ -25,8 +25,8 @@ THIN_LTO=0
 
 # Files
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
-DTBO=$(pwd)/out/arch/arm64/boot/dtbo.img
-DTB=$(pwd)/out/arch/arm64/boot/dts/mediatek
+#DTBO=$(pwd)/out/arch/arm64/boot/dtbo.img
+#DTB=$(pwd)/out/arch/arm64/boot/dts/mediatek
 
 # Verbose Build
 VERBOSE=0
@@ -48,7 +48,7 @@ FINAL_ZIP_ALIAS=Karenulmerlita-${TANGGAL}.zip
 ##----------------------------------------------------------##
 # Specify compiler.
 
-COMPILER=azure
+COMPILER=zyc
 
 ##----------------------------------------------------------##
 # Specify Linker
@@ -73,6 +73,13 @@ function cloneTC() {
     elif [ $COMPILER = "trb" ];
     then
     git clone --depth=1 https://gitlab.com/varunhardgamer/trb_clang.git clang
+    PATH="${KERNEL_DIR}/clang/bin:$PATH"
+    
+    elif [ $COMPILER = "zyc" ];
+    then
+        mkdir clang
+        wget https://github.com/ZyCromerZ/Clang/releases/download/17.0.0-20230608-release/Clang-17.0.0-20230608.tar.gz
+        tar -C clang/ -zxf Clang-17.0.0-20230608.tar.gz
     PATH="${KERNEL_DIR}/clang/bin:$PATH"
     
     elif [ $COMPILER = "cosmic" ];
@@ -284,8 +291,8 @@ START=$(date +"%s")
 function zipping() {
 	# Copy Files To AnyKernel3 Zip
 	cp $IMAGE AnyKernel3
-	cp $DTBO AnyKernel3
-	find $DTB -name "*.dtb" -exec cat {} + > AnyKernel3/dtb
+	#cp $DTBO AnyKernel3
+	#find $DTB -name "*.dtb" -exec cat {} + > AnyKernel3/dtb
 	
 	
 	# Zipping and Push Kernel
