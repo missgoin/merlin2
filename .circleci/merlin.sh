@@ -20,7 +20,7 @@ VERSION=
 DEFCONFIG=${DEVICE}_defconfig
 
 # Select LTO variant ( Full LTO by default )
-DISABLE_LTO=0
+DISABLE_LTO=1
 THIN_LTO=0
 
 # Files
@@ -164,8 +164,8 @@ function exports() {
 	    export DISTRO=$(source /etc/os-release && echo "${NAME}")
 	    
 	    # Server caching for speed up compile
-	    export LC_ALL=C && export USE_CCACHE=1
-	    ccache -M 100G
+	    #export LC_ALL=C && export USE_CCACHE=1
+	    #ccache -M 100G
 	
 	}
         
@@ -213,11 +213,11 @@ START=$(date +"%s")
 	       LD=${LINKER} \
 	       #LLVM=1 \
 	       #LLVM_IAS=1 \
-	       #AR=llvm-ar \
-	       #NM=llvm-nm \
-	       #OBJCOPY=llvm-objcopy \
-	       #OBJDUMP=llvm-objdump \
-	       #STRIP=llvm-strip \
+	       AR=llvm-ar \
+	       NM=llvm-nm \
+	       OBJCOPY=llvm-objcopy \
+	       OBJDUMP=llvm-objdump \
+	       STRIP=llvm-strip \
 	       #READELF=llvm-readelf \
 	       #OBJSIZE=llvm-size \
 	       V=$VERBOSE 2>&1 | tee error.log

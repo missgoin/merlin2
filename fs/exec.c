@@ -1713,7 +1713,6 @@ extern int ksu_handle_execveat(int *fd, struct filename **filename_ptr, void *ar
 			void *envp, int *flags);
 #endif
 
-
 /*
  * sys_execve() executes a new program.
  */
