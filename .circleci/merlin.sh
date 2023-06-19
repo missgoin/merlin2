@@ -11,7 +11,7 @@ KERNEL_DIR="$(pwd)"
 ##----------------------------------------------------------##
 # Device Name and Model
 MODEL=Xiaomi
-DEVICE=merlin
+DEVICE=lancelot
 
 # Kernel Version Code
 VERSION=
@@ -37,13 +37,13 @@ KERVER=$(make kernelversion)
 COMMIT_HEAD=$(git log --oneline -1)
 
 # Date and Time
-DATE=$(TZ=Asia/Jakarta date +"%Y%m%d-%T")
+DATE=$(TZ=Asia/Jakarta date +"%Y%m%d-%H%M")
 TANGGAL=$(date +"%F%S")
 
 # Specify Final Zip Name
 ZIPNAME=SUPER.KERNEL
-FINAL_ZIP=${ZIPNAME}-${DEVICE}-${TANGGAL}.zip
-FINAL_ZIP_ALIAS=Karenulmerlita-${TANGGAL}.zip
+FINAL_ZIP=${ZIPNAME}-${DEVICE}-${DATE}.zip
+FINAL_ZIP_ALIAS=Karenulmerlita-${DATE}.zip
 
 ##----------------------------------------------------------##
 # Specify compiler.
