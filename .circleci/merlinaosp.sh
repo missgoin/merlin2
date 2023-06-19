@@ -6,7 +6,7 @@ TC_DIR="$PWD/tc/r487747"
 GCC_64_DIR="$PWD/tc/aarch64-linux-android-4.9"
 GCC_32_DIR="$PWD/tc/arm-linux-androideabi-4.9"
 #AK3_DIR="$PWD/AnyKernel3"
-DEFCONFIG="ginkgo-perf_defconfig"
+DEFCONFIG="lancelot_defconfig"
 
 # Select LTO variant ( Full LTO by default )
 DISABLE_LTO=0
