@@ -11,10 +11,10 @@ KERNEL_DIR="$(pwd)"
 ##----------------------------------------------------------##
 # Device Name and Model
 MODEL=Xiaomi
-DEVICE=merlin
+DEVICE=lancelot
 
 # Kernel Version Code
-VERSION=
+#VERSION=
 
 # Kernel Defconfig
 DEFCONFIG=${DEVICE}_defconfig
